@@ -1,0 +1,29 @@
+dn: cn=admin,dc=example,dc=edu
+objectClass: simpleSecurityObject
+objectClass: organizationalRole
+cn: admin
+userPassword: password
+description: LDAP administrator
+
+dn: uid=jsmith,ou=People,dc=example,dc=edu
+objectClass: organizationalPerson
+objectClass: person
+objectClass: top
+objectClass: inetOrgPerson
+givenName: Joe
+uid: jsmith
+sn: Smith
+cn: John Smith
+userPassword: password
+
+
+dn: uid=banderson,ou=People,dc=example,dc=edu
+objectClass: organizationalPerson
+objectClass: person
+objectClass: top
+objectClass: inetOrgPerson
+givenName: Bob
+uid: banderson
+sn: Anderson
+cn: Bob Anderson
+userPassword: password
