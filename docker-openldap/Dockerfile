@@ -9,6 +9,7 @@ RUN echo 'slapd/root_password password password' | debconf-set-selections && \
 
 ADD init.ldif /
 ADD users.ldif /
+ADD start-ldap.sh /
 
 RUN service slapd start \
     && mkdir -p /var/ldap/example \
@@ -19,4 +20,4 @@ RUN service slapd start \
 
 EXPOSE 389
 
-CMD slapd -h 'ldap:///' -g openldap -u openldap -d 0
+ENTRYPOINT ["/start-ldap.sh"]
