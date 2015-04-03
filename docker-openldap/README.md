@@ -13,7 +13,7 @@ docker build --tag="jtgasper3/openldap" .
 To start a container:
 
 ```
-docker run -d -p 10389:389 --name="ldap-server" jtgasper3/openldap
+docker run -d -p 10389:389 --name="ldap-server" jtgasper3/openldap-basic
 ```
 
 To connect to the instance, point your favorite ldap browser to `localhost:10389` and connect with `cn=admin,dc=example,dc=edu` and `password`.
