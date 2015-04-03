@@ -7,7 +7,7 @@ This image is perfect if you need to spin-up a clean ldap image for testing. Thi
 Update the `users.ldif` file and then rebuild the image:
 
 ```
-docker build --tag="jtgasper3/openldap" .
+docker build --tag="jtgasper3/openldap-basic" .
 ```
 
 To start a container:
