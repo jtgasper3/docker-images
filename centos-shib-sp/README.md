@@ -15,8 +15,8 @@ Next, assuming the Dockerfile is similar to this example:
 ```
 FROM jtgasper3/centos-shib-sp
 
-ADD /shibboleth-sp/ /etc/shibboleth-dp/
-ADD /appfiles/ /var/www/http/ 
+ADD /shibboleth-sp/ /etc/shibboleth/
+ADD /appfiles/ /var/www/html/ 
 ```
 
 > This will take the base image that is available in the Docker repository and download it. Next, it overrides all of the base files with your local configuration.
@@ -24,7 +24,7 @@ ADD /appfiles/ /var/www/http/
 The dependant image can be built by running:
 
 ```
-docker build --tag="<org_id>/<image_name>".
+docker build --tag="<org_id>/<image_name>" .
 ```
 
 Now, just execute the new image:
@@ -38,15 +38,12 @@ $ docker run -dP --name="app-local-test" <org_id>/<image_name>
 From source:
 
 ```
-$ docker build --tag="org_id/shibboleth-idp" github.com/jtgasper3/docker-images/centos-shib-sp
+$ docker build --tag="<org_id>/centos-shib-sp" github.com/jtgasper3/docker-images/centos-shib-sp
 ```
 
 ## Author
 
   * John Gasper (<https://jtgasper.github.io>, <jgasper@unicon.net>, <jtgasper3@gmail.com>)
-
-## References
-The following references provided some form of guidence for this project:
 
 
 ## LICENSE

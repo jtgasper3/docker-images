@@ -7,3 +7,9 @@ RUN yum -y update \
     && wget http://download.opensuse.org/repositories/security://shibboleth/CentOS_7/security:shibboleth.repo -P /etc/yum.repos.d \
     && yum -y install httpd shibboleth.x86_64 \
     && yum -y clean all
+
+COPY httpd-foreground /usr/local/bin/
+
+EXPOSE 80 443
+
+CMD ["httpd-foreground"]
