@@ -7,13 +7,13 @@ This image is perfect if you need to spin-up a clean ldap image for testing. Thi
 Update the `users.ldif` file and then rebuild the image:
 
 ```
-docker build --tag="jtgasper3/389ds" .
+docker build --tag="jtgasper3/389ds-basic" .
 ```
 
 To start a container:
 
 ```
-docker run -d -p 10389:389 --name="ldap-server" jtgasper3/389ds
+docker run -d -p 10389:389 --name="ldap-server" jtgasper3/389ds-basic
 ```
 
 To connect to the instance, point your favorite ldap browser to `localhost:10389` and connect with `cn=Directory Manager` and `password`.
