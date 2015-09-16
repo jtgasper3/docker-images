@@ -8,6 +8,10 @@ RUN yum -y update \
     && yum -y install httpd shibboleth.x86_64 \
     && yum -y clean all
 
+ RUN mkdir /var/run/lock \
+ 	&& mkdir /var/lock/subsys/ \
+    && chmod +x /etc/shibboleth/shibd-redhat
+
 COPY httpd-foreground /usr/local/bin/
 
 EXPOSE 80 443
