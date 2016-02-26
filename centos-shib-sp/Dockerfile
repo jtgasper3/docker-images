@@ -8,7 +8,8 @@ RUN yum -y update \
     && yum -y install httpd shibboleth.x86_64 \
     && yum -y clean all
 
-RUN mkdir -p /var/lock/subsys/ \
+RUN test -d /var/run/lock || mkdir -p /var/run/lock \
+    && test -d /var/lock/subsys/ || mkdir -p /var/lock/subsys/ \
     && chmod +x /etc/shibboleth/shibd-redhat \
     && echo $'export LD_LIBRARY_PATH=/opt/shibboleth/lib64:$LD_LIBRARY_PATH\n'\
        > /etc/sysconfig/shibd \
