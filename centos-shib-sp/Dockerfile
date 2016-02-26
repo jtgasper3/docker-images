@@ -8,12 +8,14 @@ RUN yum -y update \
     && yum -y install httpd shibboleth.x86_64 \
     && yum -y clean all
 
- RUN mkdir /var/run/lock \
- 	&& mkdir /var/lock/subsys/ \
-    && chmod +x /etc/shibboleth/shibd-redhat
+RUN mkdir -p /var/lock/subsys/ \
+    && chmod +x /etc/shibboleth/shibd-redhat \
+    && echo $'export LD_LIBRARY_PATH=/opt/shibboleth/lib64:$LD_LIBRARY_PATH\n'\
+       > /etc/sysconfig/shibd \
+    && chmod +x /etc/sysconfig/shibd
 
-COPY httpd-foreground /usr/local/bin/
+COPY httpd-shibd-foreground /usr/local/bin/
 
 EXPOSE 80 443
 
-CMD ["httpd-foreground"]
+CMD ["httpd-shibd-foreground"]
