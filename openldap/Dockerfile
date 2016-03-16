@@ -3,7 +3,8 @@ FROM  ubuntu
 MAINTAINER jgasper@unicon.net
 
 # install slapd using debian unattended mode
-RUN echo 'slapd/root_password password password' | debconf-set-selections && \
+RUN apt-get update && \
+    echo 'slapd/root_password password password' | debconf-set-selections && \
     echo 'slapd/root_password_again password password' | debconf-set-selections && \
     DEBIAN_FRONTEND=noninteractive apt-get install -y ldap-utils slapd
 
