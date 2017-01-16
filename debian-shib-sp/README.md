@@ -13,7 +13,7 @@ For example, add your SP configurations to `./shibboleth-sp` and you app files t
 Next, assuming the Dockerfile is similar to this example:
 
 ```
-FROM jtgasper3/debian-shib-sp
+FROM jtgasper3/debian-shibboleth-sp
 ADD /shibboleth-sp/ /etc/shibboleth-dp/
 ADD /appfiles/ /var/www/http/ 
 ```
