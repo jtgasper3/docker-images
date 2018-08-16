@@ -26,4 +26,7 @@ RUN useradd ldapadmin \
 
 EXPOSE 389
 
-CMD /usr/sbin/ns-slapd -D /etc/dirsrv/slapd-dir && tail -F /var/log/dirsrv/slapd-dir/access
+#  rm -fv is to fix unclean shutdown which prevents slapd starting up
+CMD rm -fv /var/lock/dirsrv/slapd-dir/server/* \
+    && /usr/sbin/ns-slapd -D /etc/dirsrv/slapd-dir \
+    && tail -F /var/log/dirsrv/slapd-dir/{access,errors}
